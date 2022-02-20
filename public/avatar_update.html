@@ -8,8 +8,8 @@
 
   <body>
     <input id="file" type="file" />
-    <img id="avatar" style="height: 200px; width: 200px; border-radius: 50%" />
-    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.20.0-0/axios.min.js
+    <img alt="头像" id="avatar" style="height: 200px; width: 200px; border-radius: 50%" />
+    <script src="https://cdn.staticfile.org/axios/0.20.0-0/axios.min.js
     "></script>
     <script>
       const phone = ''
@@ -33,14 +33,14 @@
           false,
         )
         const res = await axios({
-          url: `/user/detail?uid=32953014&timestamp=${Date.now()}`,
+          url: `user/detail?uid=32953014&timestamp=${Date.now()}`,
           withCredentials: true, //关键
         })
         document.querySelector('#avatar').src = res.data.profile.avatarUrl
       }
       async function login() {
         const res = await axios({
-          url: `/login/cellphone?phone=${phone}&password=${password}`,
+          url: `login/cellphone?phone=${phone}&password=${password}`,
           withCredentials: true, //关键
         })
         cookieToken = res.data.cookie

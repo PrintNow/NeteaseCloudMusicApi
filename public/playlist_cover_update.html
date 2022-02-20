@@ -11,8 +11,8 @@
     <img
       id="playlist_cover"
       style="height: 200px; width: 200px; border-radius: 50%"
-    />
-    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.20.0-0/axios.min.js"></script>
+     alt="播放列表封面"/>
+    <script src="https://cdn.staticfile.org/axios/0.20.0-0/axios.min.js"></script>
     <script>
       const phone = ''
       const password = ''
@@ -41,13 +41,13 @@
           false,
         )
         const res = await axios({
-          url: `/playlist/detail?id=${playlist_id}&timestamp=${Date.now()}`,
+          url: `playlist/detail?id=${playlist_id}&timestamp=${Date.now()}`,
         })
         document.querySelector('#playlist_cover').src = res.data.playlist.coverImgUrl
       }
       async function login() {
         const res = await axios({
-          url: `/login/cellphone?phone=${phone}&password=${password}`,
+          url: `login/cellphone?phone=${phone}&password=${password}`,
           withCredentials: true, //关键
         })
         cookieToken = res.data.cookie

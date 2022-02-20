@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.20.0-0/axios.min.js"></script>
+  <script src="https://cdn.staticfile.org/axios/0.20.0-0/axios.min.js"></script>
   <script>
     const phone = '' // 这里填手机号
     const password = '' // 这里填密码
@@ -22,7 +22,7 @@
 
     async function login() {
       const res = await axios({
-        url: `/login/cellphone?phone=${phone}&password=${encodeURIComponent(
+        url: `login/cellphone?phone=${phone}&password=${encodeURIComponent(
           password,
         )}`,
       })
@@ -31,7 +31,7 @@
     async function main() {
       await login()
       const res = await axios({
-        url: `/homepage/block/page`,
+        url: `homepage/block/page`,
         data: {
           cookie: cookieToken,
         },
@@ -42,7 +42,7 @@
       if (res.data.data.hasMore) {
         cursor = res.data.data.cursor
         const res2 = await axios({
-          url: `/homepage/block/page?time=${Date.now()}`,
+          url: `homepage/block/page?time=${Date.now()}`,
           data: {
             cookie: cookieToken,
             cursor: cursor,

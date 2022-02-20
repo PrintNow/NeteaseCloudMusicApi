@@ -10,8 +10,8 @@
 
 <body>
   <p>请在控制台看结果</p>
-  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
   <script>
     const phone = ''
     const password = ''
@@ -21,14 +21,14 @@
       throw new Error(msg)
     }
     $.ajax({
-      url: `/login/cellphone?phone=${phone}&password=${password}`,
+      url: `login/cellphone?phone=${phone}&password=${password}`,
       xhrFields: {
         withCredentials: true, //关键
       },
       success: function (data) {
         console.log(data)
         $.ajax({
-          url: `/recommend/resource `,
+          url: `recommend/resource`,
           xhrFields: {
             withCredentials: true, //关键
           },
@@ -46,12 +46,12 @@
     })
 
     axios({
-      url: `/login/cellphone?phone=${phone}&password=${password}`,
+      url: `login/cellphone?phone=${phone}&password=${password}`,
       withCredentials: true, //关键
     }).then(function (res) {
       console.log(res.data)
       axios({
-        url: `/recommend/resource`,
+        url: `recommend/resource`,
         withCredentials: true, //关键
       }).then(function (res) {
         console.log(res.data)
